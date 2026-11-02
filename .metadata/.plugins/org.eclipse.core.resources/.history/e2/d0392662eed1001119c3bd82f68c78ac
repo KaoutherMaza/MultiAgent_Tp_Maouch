@@ -1,0 +1,34 @@
+package agents;
+import jade.core.Runtime;
+import jade.core.Profile;
+import jade.core.ProfileImpl;
+import jade.wrapper.AgentContainer;
+import jade.wrapper.AgentController;
+
+public class ConsumerContainer {
+
+  public static void main(String[] args) {
+    
+     try {
+              Runtime rt = Runtime.instance();
+              Profile profile = new ProfileImpl();
+              profile.setParameter(Profile.MAIN_HOST, "true");
+              profile.setParameter(profile.MAIN_HOST,"172.17.0.1");
+            //sert a rattache ce container au main container tabe3 liih li rah fl ip @ hadiik
+              //to change the port it runs on (IF u can see the ip is between "" so this is the name of it bach mayt5eltoloch 
+              //profile.setParameter(profile.MAIN_PORT,"1099)
+            
+              AgentContainer Container = rt.createAgentContainer(profile);
+
+              AgentController consumerAgent = Container.createNewAgent("consumer", "agents.ConsumerAgent", new Object[0]
+              );
+              consumerAgent.start();
+
+          } catch (Exception e) {
+              // THIS IS WHAT THE TEACHER WANTS:
+              System.out.println("Une erreur est survenue");
+              System.out.println("Message de l'erreur :  Cannot bind server socket to localhost port 1099 : the port 1099 is already in use by another application" );
+          }
+
+  }
+}
