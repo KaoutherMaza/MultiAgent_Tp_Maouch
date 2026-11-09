@@ -1,0 +1,22 @@
+package agents;
+import jade.core.AID;
+import jade.core.Runtime;
+import jade.core.Profile;
+import jade.core.ProfileImpl;
+import jade.wrapper.AgentContainer;
+import jade.wrapper.AgentController;
+
+public class ConsumerContainer1 {
+
+  public static void main(String[] args) throws Exception {
+    Runtime runtime = Runtime.instance();
+    ProfileImpl profile = new ProfileImpl();
+    
+    profile.setParameter(Profile.MAIN_HOST, "true");
+    profile.setParameter(profile.MAIN_HOST,"172.17.0.1");
+    profile.setParameter(profile.MAIN_PORT,"1099");
+    
+    
+
+  }
+}
