@@ -1,4 +1,5 @@
 package agents;
+import jade.core.AID;
 import jade.core.Agent;
 
 public class ConsumerAgent extends Agent{
@@ -8,6 +9,20 @@ public class ConsumerAgent extends Agent{
 		// TODO Auto-generated method stub
 		//super.setup();
 		System.out.println("Initialisation de l'agent" +this.getAID().getName());
+
+		// TEST 3 : construire l'objet AID (Client) a partir du nom local "consumer"
+		String nomLocal = "consumer";
+
+		// Le nom complet (GUID) = nomLocal@plateforme. On recupere la partie
+		// plateforme (ip:port/JADE) depuis l'AID de cet agent.
+		String nomCompletAgent = this.getAID().getName();
+		String plateforme = nomCompletAgent.substring(nomCompletAgent.indexOf('@') + 1);
+
+		AID Client = new AID(nomLocal + "@" + plateforme, AID.ISGUID);
+
+		// Affichage du nom local et du nom global (complet) contenus dans l'objet Client
+		System.out.println("Nom local  : " + Client.getLocalName());
+		System.out.println("Nom global : " + Client.getName());
 	}
 	
 	@Override
